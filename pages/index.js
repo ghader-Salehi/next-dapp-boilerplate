@@ -29,6 +29,7 @@ export default function Home() {
           {CONNECTOR_CARDS.map((item) => {
             return (
               <div
+                style={{minWidth : "100px"}}
                 className="flex flex-col items-center mx-4 hover:bg-slate-200 p-2 rounded-lg cursor-pointer select-none text-sm transition-all"
                 key={item.title}
               >

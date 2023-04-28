@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-const Modal = ({ open, onClose, children, ...rest }) => {
+const Modal = ({ open, onClose, children }) => {
   const ref = useRef(null);
 
   const handleClickOutside = (event) => {
