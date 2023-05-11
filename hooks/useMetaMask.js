@@ -1,16 +1,9 @@
-import { createContext, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const AppContext = createContext();
-
-const { ethereum } = typeof window !== "undefined" ? window : {};
-
-
-const AppProvider = ({ children }) => {
+export default useMetaMask = () => {
   const [account, setAccount] = useState("");
   const [error, setError] = useState("");
 
-
-  // MetaMask 
   const checkEthereumExists = () => {
     if (!ethereum) {
       setError("Please Install MetaMask.");
@@ -55,12 +48,5 @@ const AppProvider = ({ children }) => {
     };
   }, []);
 
-  return (
-    <AppContext.Provider
-      value={{ account, connectWallet, error }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+  return { account, connectWallet, error };
 };
-export default AppProvider;
